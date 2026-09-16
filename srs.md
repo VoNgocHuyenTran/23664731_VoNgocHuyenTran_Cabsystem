@@ -59,7 +59,7 @@ Công ty ABC cung cấp dịch vụ **đặt xe trực tuyến**. Hệ thống h
 > **Nhu cầu:** Tự động hóa quy trình đặt xe và quản lý tập trung.
 > **Mục tiêu:** Tăng hiệu quả vận hành, cải thiện trải nghiệm khách hàng và hỗ trợ tăng trưởng.
 > **Giá trị:** Tiết kiệm thời gian, giảm sai sót/thất bại, tăng khả năng kiểm soát và tạo nền tảng linh hoạt cho tương lai.
-> 
+
 # B2. Xác định các bên liên quan
 
 ## 1. Danh sách các bên liên quan
@@ -86,7 +86,7 @@ Công ty ABC cung cấp dịch vụ **đặt xe trực tuyến**. Hệ thống h
               │                 │                     │
   CAO         │ GIỮ HÀI LÒNG   │ QUẢN LÝ CHẶT CHẼ   │
               │                 │                     │
-ẢNH HƯỞNG     │ - Nhà cung cấp  │ - Ban giám đốc      │
+ ẢNH HƯỞNG     │ - Nhà cung cấp  │ - Ban giám đốc      │
               │   thanh toán    │ - Nhân viên vận hành│
               │ - Nhà cung cấp  │ - BA                │
               │   thông báo     │ - Đội phát triển    │
@@ -100,6 +100,7 @@ Công ty ABC cung cấp dịch vụ **đặt xe trực tuyến**. Hệ thống h
               │                 │                     │
               └─────────────────┴─────────────────────┘
 ```
+
 ---
 
 ## 3. Mức độ ảnh hưởng của các bên liên quan
@@ -123,13 +124,14 @@ Công ty ABC cung cấp dịch vụ **đặt xe trực tuyến**. Hệ thống h
 * **Ảnh hưởng thấp + Quan tâm cao:** cần **cung cấp thông tin và thu thập phản hồi**.
 * **Ảnh hưởng thấp + Quan tâm thấp:** chỉ cần **theo dõi**.
 
-**Stakeholder quan trọng nhất:** Ban giám đốc và nhân viên vận hành vì có ảnh hưởng và mức độ quan tâm cao đối với hệ thống.
+**Nhóm stakeholder cần được quản lý chặt chẽ:** Ban giám đốc, nhân viên vận hành, BA, đội phát triển và IT vì thuộc nhóm ảnh hưởng cao và quan tâm cao theo ma trận trên.
+
 # Quy trình nghiệp vụ
 
 | Mã BC    | Quy trình nghiệp vụ                 | Mục tiêu                                                                                                                 |
 | -------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | **BC01** | **Hỗ trợ thanh toán**               | Hỗ trợ khách hàng thanh toán bằng tiền mặt hoặc điện tử, xử lý kết quả giao dịch và thanh toán thất bại                  |
-| **BC02** | **Giảm thời gian tìm tài xế**       | Tự động tìm tài xế phù hợp, ưu tiên tài xế gần khách hàng và tiếp tục tìm tài xế khác nếu bị từ chối hoặc không phản hồi |
+| **BC02** | **Giảm thời gian tìm tài xế**       | Tự động tìm tài xế phù hợp theo các tiêu chí vận hành đã được ABC thống nhất/cấu hình và tiếp tục tìm tài xế khác nếu bị từ chối hoặc không phản hồi |
 | **BC03** | **Hỗ trợ đặt xe**                   | Cho phép khách hàng nhập điểm đón, điểm đến, chọn loại xe và gửi yêu cầu đặt xe                                          |
 | **BC04** | **Theo dõi chuyến đi**              | Cho phép khách hàng theo dõi tài xế, thời gian dự kiến đến và trạng thái chuyến                                          |
 | **BC05** | **Quản lý và thực hiện chuyến**     | Cho phép tài xế nhận/từ chối chuyến và cập nhật trạng thái từ khi đến điểm đón đến khi hoàn thành                        |
@@ -145,25 +147,27 @@ Công ty ABC cung cấp dịch vụ **đặt xe trực tuyến**. Hệ thống h
 
 ### BC01 – Hỗ trợ thanh toán
 
-Khách hàng thanh toán sau khi chuyến đi hoàn thành. Hệ thống tính cước, hỗ trợ thanh toán tiền mặt hoặc điện tử, tích hợp với nhà cung cấp thanh toán bên ngoài và thông báo kết quả giao dịch.
+Khách hàng thanh toán sau khi chuyến đi hoàn thành. Hệ thống xác định cước cuối cùng sau khi chuyến hoàn thành, hỗ trợ thanh toán tiền mặt hoặc điện tử và ghi nhận trạng thái thanh toán.
 
 ### BC02 – Giảm thời gian tìm tài xế
 
-Khi khách hàng đặt xe, hệ thống tự động tìm tài xế phù hợp dựa trên **vị trí, trạng thái sẵn sàng và các tiêu chí vận hành**. Hệ thống ưu tiên tài xế phù hợp và gần khách hàng. Nếu tài xế từ chối hoặc không phản hồi, hệ thống tiếp tục tìm tài xế khác mà khách hàng không cần tạo lại yêu cầu.
+Khi yêu cầu đặt xe hợp lệ được tạo, hệ thống tự động tìm tài xế phù hợp dựa trên **vị trí, trạng thái sẵn sàng, loại xe và các tiêu chí vận hành đã được ABC thống nhất/cấu hình**. Hệ thống ưu tiên theo các tiêu chí đã thống nhất. Nếu tài xế từ chối hoặc không phản hồi, hệ thống tiếp tục tìm tài xế khác mà khách hàng không cần tạo lại yêu cầu.
 
 ### BC03 – Hỗ trợ đặt xe
 
-Khách hàng nhập **điểm đón, điểm đến, loại xe** và gửi yêu cầu đặt xe. Hệ thống tiếp nhận và bắt đầu quá trình tìm tài xế.
+Khách hàng nhập **điểm đón, điểm đến, loại xe**. Hệ thống kiểm tra thông tin bắt buộc và hợp lệ trước khi tạo yêu cầu đặt xe. Khi tạo thành công, hệ thống bắt đầu quá trình tìm tài xế.
 
 ### BC04 – Theo dõi chuyến đi
 
-Khách hàng theo dõi **tài xế, vị trí, thời gian dự kiến đến và trạng thái chuyến đi** từ lúc đặt xe đến khi hoàn thành.
+Khách hàng theo dõi **vị trí tài xế, thời gian dự kiến đến và trạng thái chuyến đi** khi hệ thống đã có tài xế và dữ liệu vị trí phù hợp.
 
 ### BC05 – Quản lý và thực hiện chuyến
 
 Tài xế nhận hoặc từ chối chuyến, sau đó cập nhật các trạng thái:
 
 `Đã nhận → Đã đến điểm đón → Đã đón khách → Đang di chuyển → Hoàn thành`
+
+Trường hợp hủy chuyến được xử lý theo **chính sách hủy chuyến của ABC** khi chính sách này được thống nhất; không tự xác định quy tắc hủy trong phạm vi tài liệu hiện tại.
 
 ### BC06 – Quản lý tài xế và phương tiện
 
@@ -213,7 +217,6 @@ Khách hàng và nhân viên có thể **tra cứu lịch sử chuyến đi, s�
 ### Trong phạm vi (In Scope)
 
 * **Quản lý khách hàng**
-
   * Đăng ký, đăng nhập tài khoản.
   * Cập nhật thông tin cá nhân.
   * Quản lý thông tin khách hàng.
@@ -221,7 +224,6 @@ Khách hàng và nhân viên có thể **tra cứu lịch sử chuyến đi, s�
   * Đánh giá tài xế.
 
 * **Quản lý tài xế**
-
   * Đăng ký hoặc tạo tài khoản tài xế.
   * Quản lý hồ sơ tài xế.
   * Quản lý thông tin phương tiện.
@@ -229,29 +231,25 @@ Khách hàng và nhân viên có thể **tra cứu lịch sử chuyến đi, s�
   * Theo dõi vị trí tài xế.
 
 * **Đặt xe**
-
   * Nhập điểm đón và điểm đến.
   * Lựa chọn loại xe.
   * Gửi yêu cầu đặt xe.
   * Theo dõi trạng thái yêu cầu.
 
 * **Tìm và phân công tài xế**
-
   * Tự động tìm tài xế phù hợp.
-  * Ưu tiên tài xế gần khách hàng.
+  * Áp dụng các tiêu chí ưu tiên tài xế theo chính sách vận hành đã được ABC thống nhất/cấu hình.
   * Gửi yêu cầu nhận chuyến.
   * Tìm tài xế khác khi tài xế từ chối hoặc không phản hồi.
   * Thông báo khi không tìm được tài xế.
 
 * **Quản lý chuyến đi**
-
   * Nhận hoặc từ chối chuyến.
   * Cập nhật trạng thái chuyến.
   * Theo dõi vị trí tài xế.
   * Hoàn thành chuyến.
 
 * **Thanh toán và tính cước**
-
   * Tính tiền chuyến đi.
   * Thanh toán tiền mặt.
   * Thanh toán điện tử.
@@ -259,13 +257,11 @@ Khách hàng và nhân viên có thể **tra cứu lịch sử chuyến đi, s�
   * Xử lý trường hợp thanh toán thất bại.
 
 * **Thông báo**
-
   * Thông báo cho khách hàng về trạng thái chuyến.
   * Thông báo chuyến mới cho tài xế.
   * Thông báo kết quả thanh toán.
 
 * **Quản lý vận hành**
-
   * Quản lý khách hàng.
   * Quản lý tài xế.
   * Quản lý phương tiện.
@@ -273,7 +269,6 @@ Khách hàng và nhân viên có thể **tra cứu lịch sử chuyến đi, s�
   * Xử lý các trường hợp chuyến bị lỗi.
 
 * **Báo cáo và thống kê**
-
   * Số lượng chuyến.
   * Doanh thu.
   * Tỷ lệ hoàn thành.
@@ -281,7 +276,6 @@ Khách hàng và nhân viên có thể **tra cứu lịch sử chuyến đi, s�
   * Hiệu quả hoạt động của tài xế.
 
 * **Bảo mật và phân quyền**
-
   * Xác thực người dùng.
   * Phân quyền nhân viên.
   * Bảo vệ dữ liệu cá nhân và giao dịch.
@@ -305,7 +299,8 @@ Khách hàng và nhân viên có thể **tra cứu lịch sử chuyến đi, s�
 **Phạm vi chính của CAB System:**
 
 > Quản lý khách hàng → Quản lý tài xế → Đặt xe → Tìm và phân công tài xế → Thực hiện chuyến → Tính cước và thanh toán → Thông báo → Quản lý vận hành → Báo cáo.
-> # B5. Business Requirement
+
+# B5. Business Requirement
 
 | Mã | Tên yêu cầu | Diễn giải |
 |---|---|---|
@@ -332,57 +327,59 @@ Sử dụng công cụ **Mermaid** để mô tả quy trình nghiệp vụ tổn
 ```mermaid
 flowchart TD
     A([Khách hàng]) --> B[Nhập điểm đón, điểm đến và chọn loại xe]
-    B --> C[Gửi yêu cầu đặt xe]
+    B --> C[Kiểm tra thông tin đặt chuyến]
+    C --> D{Thông tin hợp lệ?}
 
-    C --> D[Hệ thống tiếp nhận yêu cầu]
-    D --> E[Tính cước dự kiến]
-    E --> F[Tìm tài xế phù hợp]
+    D -- Không --> E[Thông báo lỗi và yêu cầu nhập lại]
+    E --> B
+    D -- Có --> F[Gửi yêu cầu đặt xe]
+    F --> G[Hệ thống tạo yêu cầu đặt chuyến]
 
-    F --> G{Có tài xế phù hợp?}
+    G --> H{Khách hàng hủy yêu cầu?}
+    H -- Có --> I[Hủy yêu cầu theo chính sách ABC]
+    I --> J([Kết thúc])
+    H -- Không --> K[Tính cước dự kiến]
+    K --> L[Tìm tài xế phù hợp]
 
-    G -- Không --> H[Thông báo không tìm được tài xế]
-    H --> I([Kết thúc])
+    L --> M{Có tài xế phù hợp?}
+    M -- Không --> N[Thông báo không tìm được tài xế]
+    N --> J
+    M -- Có --> O[Gửi yêu cầu nhận chuyến cho tài xế]
 
-    G -- Có --> J[Gửi yêu cầu nhận chuyến cho tài xế]
+    O --> P{Tài xế nhận chuyến?}
+    P -- Không / Không phản hồi --> L
+    P -- Có --> Q[Thông báo tài xế đã nhận chuyến]
 
-    J --> K{Tài xế nhận chuyến?}
+    Q --> R[Theo dõi vị trí tài xế]
+    R --> S[Tài xế đến điểm đón]
+    S --> T[Thông báo tài xế đã đến]
+    T --> U[Tài xế đón khách]
+    U --> V[Tài xế bắt đầu chuyến]
+    V --> W[Theo dõi quá trình di chuyển]
+    W --> X[Tài xế hoàn thành chuyến]
 
-    K -- Không / Không phản hồi --> F
-    K -- Có --> L[Thông báo tài xế đã nhận chuyến]
+    X --> Y[Chuyển trạng thái chuyến: Hoàn thành]
+    Y --> Z[Hệ thống tính cước cuối cùng]
+    Z --> AA[Khách hàng chọn phương thức thanh toán]
 
-    L --> M[Theo dõi vị trí tài xế]
-    M --> N[Tài xế đến điểm đón]
+    AA --> AB{Phương thức thanh toán?}
+    AB -- Tiền mặt --> AC[Ghi nhận thanh toán tiền mặt]
+    AB -- Điện tử --> AD[Gửi giao dịch đến nhà cung cấp thanh toán]
 
-    N --> O[Thông báo tài xế đã đến]
-    O --> P[Tài xế đón khách]
+    AD --> AE{Thanh toán thành công?}
+    AE -- Không --> AF[Ghi nhận Thanh toán thất bại và thông báo]
+    AF --> AG{Thực hiện thanh toán lại?}
+    AG -- Có --> AD
+    AG -- Không --> AH[Ghi nhận Chưa thanh toán]
+    AE -- Có --> AI[Ghi nhận Đã thanh toán]
 
-    P --> Q[Tài xế bắt đầu chuyến]
-    Q --> R[Theo dõi quá trình di chuyển]
-    R --> S[Tài xế hoàn thành chuyến]
-
-    S --> T[Hệ thống tính cước cuối cùng]
-    T --> U{Chọn phương thức thanh toán}
-
-    U -- Tiền mặt --> V[Thanh toán tiền mặt]
-    U -- Điện tử --> W[Gửi giao dịch đến nhà cung cấp thanh toán]
-
-    W --> X{Thanh toán thành công?}
-
-    X -- Không --> Y[Thông báo thanh toán thất bại]
-    Y --> Z[Xử lý thanh toán lại]
-    Z --> W
-
-    X -- Có --> AA[Ghi nhận giao dịch]
-
-    V --> AB[Ghi nhận thanh toán]
-    AA --> AB
-
-    AB --> AC[Gửi thông báo hoàn tất chuyến]
-    AC --> AD[Khách hàng đánh giá tài xế]
-    AD --> AE[Lưu lịch sử chuyến đi]
-
-    AE --> AF([Kết thúc])
-````
+    AC --> AJ[Gửi thông báo kết quả thanh toán]
+    AI --> AJ
+    AH --> AJ
+    AJ --> AK[Khách hàng đánh giá tài xế]
+    AK --> AL[Lưu lịch sử chuyến đi và giao dịch]
+    AL --> J
+```
 
 # B7. Phân rã yêu cầu chức năng
 
@@ -493,7 +490,7 @@ flowchart TD
 | **FR-45** | Đăng ký tài khoản | Khách hàng có thể đăng ký tài khoản. |
 | **FR-46** | Đăng nhập | Khách hàng có thể đăng nhập vào hệ thống. |
 | **FR-47** | Cập nhật thông tin cá nhân | Khách hàng có thể cập nhật thông tin cá nhân. |
-| **FR-48** | Xem thông tin tài khoản | Khách hàng có thể xem thông tin tài khoản của mình. |
+| **FR-48** | Tra cứu thông tin tài khoản | Khách hàng có thể tra cứu thông tin tài khoản của mình. |
 
 ---
 
@@ -546,7 +543,7 @@ flowchart TD
 |---|---|---|
 | **FR-64** | Lưu lịch sử chuyến đi | Hệ thống lưu thông tin các chuyến đi đã thực hiện. |
 | **FR-65** | Tra cứu lịch sử chuyến | Khách hàng và nhân viên có thể tra cứu lịch sử chuyến đi. |
-| **FR-66** | Xem thông tin thanh toán | Hệ thống cho phép tra cứu số tiền và trạng thái thanh toán của chuyến. |
+| **FR-66** | Tra cứu thông tin thanh toán | Hệ thống cho phép tra cứu số tiền và trạng thái thanh toán của chuyến. |
 | **FR-67** | Tra cứu giao dịch | Hệ thống cho phép tra cứu thông tin giao dịch liên quan đến chuyến đi. |
 
 ---
@@ -558,6 +555,7 @@ flowchart TD
 | **FR-68** | Quản lý loại dịch vụ | Hệ thống cho phép bổ sung và quản lý các loại dịch vụ mới. |
 | **FR-69** | Bổ sung phương thức thanh toán | Hệ thống cho phép tích hợp thêm phương thức thanh toán mới. |
 | **FR-70** | Bổ sung kênh thông báo | Hệ thống cho phép tích hợp thêm các kênh thông báo mới. |
+
 # B8. Quy tắc nghiệp vụ và ngoại lệ
 
 ## 1. Quy tắc nghiệp vụ
@@ -569,6 +567,7 @@ flowchart TD
 | **BRULE-03** | Hỗ trợ nhiều phương thức thanh toán | Khách hàng có thể thanh toán bằng tiền mặt hoặc phương thức thanh toán điện tử được hệ thống hỗ trợ. |
 | **BRULE-04** | Ghi nhận trạng thái thanh toán | Mỗi giao dịch phải có trạng thái như: Chưa thanh toán, Đang xử lý, Đã thanh toán hoặc Thanh toán thất bại. |
 | **BRULE-05** | Không cho phép ghi nhận thanh toán thành công khi chưa xác nhận | Hệ thống chỉ cập nhật trạng thái "Đã thanh toán" khi nhận được kết quả xác nhận giao dịch hợp lệ. |
+| **BRULE-06** | Phân biệt trạng thái chuyến và trạng thái thanh toán | Trạng thái **Hoàn thành** của chuyến đi được xác lập khi tài xế hoàn thành chuyến; trạng thái thanh toán được quản lý độc lập và có thể là **Chưa thanh toán, Đang xử lý, Đã thanh toán hoặc Thanh toán thất bại**. |
 
 ## 2. Ngoại lệ
 
@@ -577,7 +576,7 @@ flowchart TD
 | **EX-01** | Khách hàng không thanh toán | Hệ thống ghi nhận trạng thái **Chưa thanh toán** và thông báo cho khách hàng thực hiện thanh toán. |
 | **EX-02** | Thanh toán điện tử thất bại | Hệ thống ghi nhận **Thanh toán thất bại** và cho phép khách hàng thực hiện lại giao dịch hoặc chọn phương thức khác. |
 | **EX-03** | Thanh toán đang xử lý | Hệ thống giữ trạng thái **Đang xử lý**, chưa xác nhận giao dịch thành công cho đến khi có kết quả cuối cùng. |
-| **EX-04** | Không nhận được phản hồi từ nhà cung cấp thanh toán | Hệ thống ghi nhận giao dịch ở trạng thái **Đang xử lý** hoặc **Không xác định**, đồng thời thông báo cho người dùng. |
+| **EX-04** | Không nhận được phản hồi từ nhà cung cấp thanh toán | Hệ thống giữ giao dịch ở trạng thái **Đang xử lý**, không tự chuyển sang **Đã thanh toán** và thông báo cho người dùng. |
 | **EX-05** | Khách hàng không thể thanh toán tiền mặt | Nhân viên vận hành xử lý theo chính sách của công ty và ghi nhận tình trạng chưa thanh toán. |
 
 ## 3. Luồng xử lý trường hợp không có thanh toán
@@ -589,86 +588,98 @@ Chuyến đi hoàn thành
         ↓
   Yêu cầu thanh toán
         ↓
-   Có thanh toán?
-     /        \
-   Có          Không
-   ↓             ↓
+    Có thanh toán?
+      /        \
+    Có          Không
+    ↓             ↓
 Ghi nhận       Ghi nhận
 đã thanh toán  chưa thanh toán
-   ↓             ↓
+    ↓             ↓
 Hoàn tất       Thông báo
 giao dịch      khách hàng
                  ↓
             Thực hiện lại
             thanh toán
-
 ```
+
 # B9. Mô hình hóa dữ liệu – ERD
 
 ## 1. Xác định các thực thể
 
-Dựa trên các quy trình nghiệp vụ và yêu cầu chức năng, hệ thống CAB gồm các thực thể chính:
+Để tránh trùng lặp thông tin đăng nhập, **Tài khoản** là thực thể xác thực chung. Khách hàng, tài xế và nhân viên vận hành tham chiếu đến tài khoản tương ứng.
 
 | STT | Thực thể | Các thuộc tính chính |
 |---|---|---|
-| 1 | **Khách hàng** | `id, ten, sdt, email, mat_khau` |
-| 2 | **Tài xế** | `id, ten, sdt, email, mat_khau, trang_thai` |
-| 3 | **Phương tiện** | `id, bien_so, loai_xe, hang_xe, mau_xe, trang_thai` |
-| 4 | **Chuyến đi** | `id, khach_hang_id, tai_xe_id, phuong_tien_id, diem_don, diem_den, trang_thai, thoi_gian_dat, thoi_gian_hoan_thanh` |
-| 5 | **Chi tiết cước** | `id, chuyen_di_id, loai_xe, khoang_cach, so_tien` |
-| 6 | **Thanh toán** | `id, chuyen_di_id, phuong_thuc, so_tien, trang_thai, thoi_gian_thanh_toan` |
-| 7 | **Đánh giá** | `id, chuyen_di_id, khach_hang_id, tai_xe_id, so_sao, noi_dung` |
-| 8 | **Thông báo** | `id, nguoi_nhan_id, loai_nguoi_nhan, noi_dung, trang_thai, thoi_gian` |
-| 9 | **Tài khoản** | `id, username, password, vai_tro, trang_thai` |
-| 10 | **Nhân viên vận hành** | `id, ten, sdt, email, vai_tro` |
+| 1 | **Tài khoản** | `id, username, password_hash, vai_tro, trang_thai` |
+| 2 | **Khách hàng** | `id, tai_khoan_id, ten, sdt, email` |
+| 3 | **Tài xế** | `id, tai_khoan_id, ten, sdt, email, trang_thai` |
+| 4 | **Nhân viên vận hành** | `id, tai_khoan_id, ten, sdt, email, vai_tro` |
+| 5 | **Phương tiện** | `id, bien_so, loai_xe, hang_xe, mau_xe, trang_thai` |
+| 6 | **Chuyến đi** | `id, khach_hang_id, tai_xe_id, phuong_tien_id, diem_don, diem_den, trang_thai, thoi_gian_dat, thoi_gian_hoan_thanh` |
+| 7 | **Chi tiết cước** | `id, chuyen_di_id, loai_xe, khoang_cach, so_tien` |
+| 8 | **Thanh toán** | `id, chuyen_di_id, phuong_thuc, so_tien, trang_thai, ma_giao_dich, thoi_gian_thanh_toan` |
+| 9 | **Đánh giá** | `id, chuyen_di_id, khach_hang_id, tai_xe_id, so_sao, noi_dung` |
+| 10 | **Thông báo** | `id, tai_khoan_id, noi_dung, trang_thai, thoi_gian` |
 
 ## 2. Các mối quan hệ chính
 
+- Một **tài khoản** tương ứng với một hồ sơ người dùng theo vai trò: khách hàng, tài xế hoặc nhân viên vận hành.
 - Một **khách hàng** có thể đặt nhiều **chuyến đi**.
 - Một **tài xế** có thể thực hiện nhiều **chuyến đi**.
 - Một **phương tiện** có thể được sử dụng cho nhiều **chuyến đi** theo thời gian.
 - Một **chuyến đi** có một **chi tiết cước**.
-- Một **chuyến đi** có thể có một **thanh toán**.
-- Một **chuyến đi** có thể có một **đánh giá**.
-- Một **khách hàng** có thể tạo nhiều **đánh giá**.
-- Một **tài xế** có thể nhận nhiều **đánh giá**.
-- Một người dùng có thể nhận nhiều **thông báo**.
+- Một **chuyến đi** có thể có nhiều bản ghi thanh toán nếu cần lưu các lần thử giao dịch.
+- Một **chuyến đi** có thể có tối đa một **đánh giá** của khách hàng.
+- Một **khách hàng** có thể tạo nhiều đánh giá; một **tài xế** có thể nhận nhiều đánh giá.
+- Một **tài khoản** có thể nhận nhiều thông báo.
 
 ## 3. ERD bằng Mermaid
 
 ```mermaid
 erDiagram
-
+    TAI_KHOAN ||--o| KHACH_HANG : "so_huu"
+    TAI_KHOAN ||--o| TAI_XE : "so_huu"
+    TAI_KHOAN ||--o| NHAN_VIEN : "so_huu"
     KHACH_HANG ||--o{ CHUYEN_DI : "dat"
     TAI_XE ||--o{ CHUYEN_DI : "thuc_hien"
     PHUONG_TIEN ||--o{ CHUYEN_DI : "su_dung"
-
     CHUYEN_DI ||--|| CHI_TIET_CUOC : "co"
-    CHUYEN_DI ||--o| THANH_TOAN : "thanh_toan"
+    CHUYEN_DI ||--o{ THANH_TOAN : "co_lan_thanh_toan"
     CHUYEN_DI ||--o| DANH_GIA : "duoc_danh_gia"
-
     KHACH_HANG ||--o{ DANH_GIA : "tao"
     TAI_XE ||--o{ DANH_GIA : "nhan"
-
     TAI_KHOAN ||--o{ THONG_BAO : "nhan"
 
-    KHACH_HANG {
+    TAI_KHOAN {
         int id PK
-        string ten
-        string sdt
-        string email
-        string mat_khau
-    }
-
-    TAI_XE {
-        int id PK
-        string ten
-        string sdt
-        string email
-        string mat_khau
+        string username
+        string password_hash
+        string vai_tro
         string trang_thai
     }
-
+    KHACH_HANG {
+        int id PK
+        int tai_khoan_id FK
+        string ten
+        string sdt
+        string email
+    }
+    TAI_XE {
+        int id PK
+        int tai_khoan_id FK
+        string ten
+        string sdt
+        string email
+        string trang_thai
+    }
+    NHAN_VIEN {
+        int id PK
+        int tai_khoan_id FK
+        string ten
+        string sdt
+        string email
+        string vai_tro
+    }
     PHUONG_TIEN {
         int id PK
         string bien_so
@@ -677,7 +688,6 @@ erDiagram
         string mau_xe
         string trang_thai
     }
-
     CHUYEN_DI {
         int id PK
         int khach_hang_id FK
@@ -689,7 +699,6 @@ erDiagram
         datetime thoi_gian_dat
         datetime thoi_gian_hoan_thanh
     }
-
     CHI_TIET_CUOC {
         int id PK
         int chuyen_di_id FK
@@ -697,16 +706,15 @@ erDiagram
         decimal khoang_cach
         decimal so_tien
     }
-
     THANH_TOAN {
         int id PK
         int chuyen_di_id FK
         string phuong_thuc
         decimal so_tien
         string trang_thai
+        string ma_giao_dich
         datetime thoi_gian_thanh_toan
     }
-
     DANH_GIA {
         int id PK
         int chuyen_di_id FK
@@ -715,27 +723,20 @@ erDiagram
         int so_sao
         string noi_dung
     }
-
-    TAI_KHOAN {
-        int id PK
-        string username
-        string password
-        string vai_tro
-        string trang_thai
-    }
-
     THONG_BAO {
         int id PK
-        int nguoi_nhan_id FK
-        string loai_nguoi_nhan
+        int tai_khoan_id FK
         string noi_dung
         string trang_thai
         datetime thoi_gian
     }
 ```
+
 # B11. Mô hình hóa Use Case và đặc tả Use Case
 
 ## 1. Sơ đồ Use Case tổng quát
+
+Các Use Case được đặt theo **hành động nghiệp vụ** mà actor thực hiện trên hệ thống. Các thao tác hiển thị dữ liệu được thể hiện trong luồng hoặc dùng tên **Tra cứu** thay vì tạo Use Case “Xem” độc lập.
 
 ```mermaid
 flowchart LR
@@ -745,47 +746,54 @@ flowchart LR
     QL[Ban giám đốc]
     TT[Nhà cung cấp thanh toán]
 
-    UC1((Đăng ký / Đăng nhập))
-    UC2((Đặt chuyến))
-    UC3((Tìm tài xế))
-    UC4((Theo dõi chuyến))
-    UC5((Thanh toán))
-    UC6((Đánh giá tài xế))
-    UC7((Xem lịch sử chuyến))
-    UC8((Nhận / Từ chối chuyến))
-    UC9((Cập nhật trạng thái chuyến))
-    UC10((Quản lý tài xế))
-    UC11((Quản lý phương tiện))
-    UC12((Quản lý khách hàng))
-    UC13((Quản lý chuyến đi))
-    UC14((Xử lý sự cố))
-    UC15((Xem báo cáo))
-    UC16((Quản lý tài khoản và phân quyền))
+    UC01((Đăng ký))
+    UC02((Đăng nhập))
+    UC03((Đặt chuyến))
+    UC04((Tìm tài xế))
+    UC05((Theo dõi chuyến))
+    UC06((Thanh toán))
+    UC07((Đánh giá tài xế))
+    UC08((Tra cứu lịch sử chuyến))
+    UC09((Nhận / Từ chối chuyến))
+    UC10((Cập nhật trạng thái chuyến))
+    UC11((Cập nhật vị trí))
+    UC12((Quản lý tài xế))
+    UC13((Quản lý phương tiện))
+    UC14((Quản lý khách hàng))
+    UC15((Quản lý chuyến đi))
+    UC16((Xử lý sự cố))
+    UC17((Tra cứu báo cáo))
+    UC18((Quản lý tài khoản và phân quyền))
 
-    KH --> UC1
-    KH --> UC2
-    KH --> UC4
-    KH --> UC5
-    KH --> UC6
-    KH --> UC7
-
-    TX --> UC1
-    TX --> UC8
-    TX --> UC9
-
-    NV --> UC10
-    NV --> UC11
+    KH --> UC01
+    KH --> UC02
+    KH --> UC03
+    KH --> UC05
+    KH --> UC06
+    KH --> UC07
+    KH --> UC08
+    TX --> UC02
+    TX --> UC09
+    TX --> UC10
+    TX --> UC11
     NV --> UC12
     NV --> UC13
     NV --> UC14
+    NV --> UC15
     NV --> UC16
-
-    QL --> UC15
-
-    TT --> UC5
-
-    UC2 -.->|include| UC3
+    NV --> UC18
+    QL --> UC17
+    TT --> UC06
+    UC03 -.->|include| UC04
 ```
+
+## 2. Ghi chú mô hình hóa
+
+- **UC03 Đặt chuyến** <<include>> **UC04 Tìm tài xế** vì việc tìm tài xế là bước bắt buộc sau khi yêu cầu đặt chuyến hợp lệ được tạo.
+- Tính cước là xử lý nghiệp vụ gắn với quá trình thanh toán/chuyến hoàn thành, không nhất thiết là Use Case độc lập nếu không có actor trực tiếp khởi tạo.
+- Hủy yêu cầu đặt chuyến được thể hiện trong luồng thay thế của UC03 và chỉ áp dụng theo chính sách ABC khi chính sách được thống nhất. Không tự giả định phí hủy hoặc thời điểm được phép hủy khi chính sách chưa được phê duyệt.
+- Nhà cung cấp thông báo có thể được xem là hệ thống bên ngoài/stakeholder; nếu triển khai tích hợp trực tiếp với nhà cung cấp, có thể bổ sung actor này vào sơ đồ.
+
 # B12. Tiêu chí chấp nhận (Acceptance Criteria - AC)
 
 ## 1. Khái niệm
@@ -820,7 +828,7 @@ Một tiêu chí chấp nhận cần:
 | Mã | Business Requirement | Tiêu chí chấp nhận |
 |---|---|---|
 | **BR-01** | Đặt chuyến | **AC-01:** Khách hàng nhập được điểm đón, điểm đến và loại xe. **AC-02:** Hệ thống không cho gửi yêu cầu khi thiếu thông tin bắt buộc. **AC-03:** Khi gửi thành công, hệ thống tạo yêu cầu đặt chuyến và chuyển sang tìm tài xế. |
-| **BR-02** | Tìm tài xế | **AC-04:** Hệ thống tìm được tài xế đang sẵn sàng và phù hợp loại xe. **AC-05:** Hệ thống ưu tiên tài xế phù hợp với vị trí điểm đón. **AC-06:** Nếu tài xế từ chối hoặc không phản hồi, hệ thống tiếp tục tìm tài xế khác. |
+| **BR-02** | Tìm tài xế | **AC-04:** Hệ thống tìm được tài xế đang sẵn sàng và phù hợp loại xe. **AC-05:** Hệ thống sắp xếp/ưu tiên tài xế theo các tiêu chí vận hành đã được ABC thống nhất/cấu hình; vị trí hoặc khoảng cách có thể là một trong các tiêu chí nếu được áp dụng. **AC-06:** Nếu tài xế từ chối hoặc không phản hồi, hệ thống tiếp tục tìm tài xế khác. |
 | **BR-03** | Theo dõi chuyến đi | **AC-07:** Khách hàng xem được trạng thái chuyến. **AC-08:** Khách hàng xem được vị trí tài xế khi có dữ liệu vị trí. **AC-09:** Trạng thái được cập nhật trong quá trình thực hiện chuyến. |
 | **BR-04** | Quản lý tài xế | **AC-10:** Nhân viên có thể thêm, sửa và tra cứu thông tin tài xế. **AC-11:** Có thể cập nhật trạng thái hoạt động của tài xế. |
 | **BR-05** | Quản lý chuyến đi | **AC-12:** Tài xế có thể nhận hoặc từ chối chuyến. **AC-13:** Tài xế có thể cập nhật trạng thái chuyến theo đúng trình tự. |
@@ -839,21 +847,28 @@ Một tiêu chí chấp nhận cần:
 
 # 4. Tiêu chí chấp nhận cho các Use Case quan trọng
 
-## AC-UC-01: Đăng ký / Đăng nhập
+## AC-UC-01: Đăng ký
 
 - Người dùng nhập đúng thông tin → đăng nhập thành công.
 - Nhập sai mật khẩu → hệ thống thông báo lỗi.
 - Tài khoản bị khóa → không được đăng nhập.
 - Người dùng sau khi đăng nhập chỉ được sử dụng chức năng đúng với vai trò.
 
-## AC-UC-02: Đặt chuyến
+## AC-UC-02: Đăng nhập
+
+- Nhập đúng tên đăng nhập và mật khẩu → đăng nhập thành công.
+- Nhập sai thông tin → hệ thống thông báo lỗi và không tạo phiên đăng nhập.
+- Tài khoản bị khóa hoặc không hoạt động → hệ thống từ chối đăng nhập.
+- Sau khi đăng nhập, hệ thống cấp quyền theo đúng vai trò của tài khoản.
+
+## AC-UC-03: Đặt chuyến
 
 - Nhập đầy đủ điểm đón, điểm đến và loại xe → tạo chuyến thành công.
 - Thiếu thông tin bắt buộc → không cho tạo chuyến.
 - Tạo chuyến thành công → hệ thống chuyển sang tìm tài xế.
 - Không tìm được tài xế → khách hàng nhận được thông báo.
 
-## AC-UC-03: Tìm tài xế
+## AC-UC-04: Tìm tài xế
 
 - Hệ thống xác định được vị trí điểm đón.
 - Chỉ lựa chọn tài xế đang sẵn sàng.
@@ -863,20 +878,21 @@ Một tiêu chí chấp nhận cần:
 - Tài xế không phản hồi → hệ thống tìm tài xế khác.
 - Không còn tài xế phù hợp → thông báo cho khách hàng.
 
-## AC-UC-04: Theo dõi chuyến đi
+## AC-UC-05: Theo dõi chuyến đi
 
 - Khách hàng xem được trạng thái chuyến.
 - Khách hàng xem được vị trí tài xế khi có dữ liệu.
 - Trạng thái chuyến được cập nhật theo quá trình thực hiện.
 - Khi chuyến hoàn thành → hệ thống hiển thị trạng thái **Hoàn thành**.
 
-## AC-UC-05: Thanh toán
+## AC-UC-06: Thanh toán
 
 - Khách hàng xem được số tiền phải trả.
 - Có thể chọn **tiền mặt hoặc thanh toán điện tử**.
 - Thanh toán thành công → hệ thống ghi nhận **Đã thanh toán**.
-- Không thanh toán → hệ thống ghi nhận **Chưa thanh toán**.
-- Thanh toán điện tử thất bại → hệ thống ghi nhận **Thanh toán thất bại** và cho phép thanh toán lại.
+- Không thực hiện thanh toán → hệ thống ghi nhận **Chưa thanh toán**.
+- Thanh toán điện tử thất bại → hệ thống ghi nhận **Thanh toán thất bại** và cho phép thanh toán lại hoặc chọn phương thức khác.
+- Chuyến đã ở trạng thái **Hoàn thành** không đồng nghĩa với thanh toán đã hoàn tất; hai trạng thái được quản lý độc lập.
 - Giao dịch đang chờ phản hồi → hệ thống ghi nhận **Đang xử lý**.
 
 ---
@@ -904,66 +920,81 @@ Dự án được xem là **hoàn thành và đủ điều kiện nghiệm thu**
 ## 6. Kết luận
 
 > **Tiêu chí chấp nhận (AC)** là tập hợp các quy tắc và điều kiện dùng để xác nhận chức năng đã đáp ứng yêu cầu khách hàng. AC là cơ sở để kiểm thử, đánh giá mức độ hoàn thành và xác định thời điểm hệ thống đủ điều kiện **nghiệm thu dự án**.
-> # B13. Truy xuất nguồn gốc yêu cầu (Requirement Traceability)
+
+# B13. Truy xuất nguồn gốc yêu cầu (Requirement Traceability)
 
 ## 1. Khái niệm
 
 **Truy xuất nguồn gốc yêu cầu (Requirement Traceability)** là quá trình theo dõi và liên kết một yêu cầu từ khi được xác định cho đến khi được phân tích, thiết kế, phát triển, kiểm thử và nghiệm thu.
 
-Mục đích là **truy xuất được mọi thông tin liên quan đến yêu cầu trong suốt quá trình phát triển hệ thống**.
+Mục đích là bảo đảm mỗi Business Requirement đều có chức năng triển khai, Use Case liên quan và tiêu chí chấp nhận tương ứng.
 
 ---
 
 ## 2. Mục đích
 
-- Xác định yêu cầu xuất phát từ **vấn đề hoặc nhu cầu nghiệp vụ nào**.
-- Theo dõi yêu cầu được triển khai thành **chức năng nào**.
-- Xác định yêu cầu được thể hiện trong **Use Case nào**.
-- Xác định yêu cầu được kiểm thử bằng **tiêu chí chấp nhận (AC) nào**.
-- Kiểm tra xem tất cả yêu cầu đã được triển khai và kiểm thử hay chưa.
+- Xác định yêu cầu xuất phát từ vấn đề hoặc nhu cầu nghiệp vụ nào.
+- Theo dõi yêu cầu được triển khai thành chức năng nào.
+- Xác định yêu cầu được thể hiện trong Use Case nào.
+- Xác định yêu cầu được kiểm thử bằng Acceptance Criteria nào.
 - Phát hiện yêu cầu bị thiếu, trùng hoặc chưa được xử lý.
-- Hỗ trợ quản lý thay đổi yêu cầu trong quá trình phát triển.
-- Làm cơ sở để **nghiệm thu hệ thống**.
+- Hỗ trợ quản lý thay đổi yêu cầu.
+- Làm cơ sở cho kiểm thử và nghiệm thu hệ thống.
 
 ---
 
-## 3. Chuỗi truy xuất yêu cầu
+## 3. Ma trận truy xuất yêu cầu
 
-Có thể truy xuất yêu cầu theo chuỗi:
+| Business Requirement | Functional Requirement | Use Case liên quan | Acceptance Criteria |
+|---|---|---|---|
+| **BR-01 Đặt chuyến** | FR-01 → FR-06 | UC03 Đặt chuyến | AC-01 → AC-03 |
+| **BR-02 Tìm tài xế** | FR-07 → FR-15 | UC04 Tìm tài xế | AC-04 → AC-06 |
+| **BR-03 Theo dõi chuyến đi** | FR-16 → FR-19 | UC05 Theo dõi chuyến | AC-07 → AC-09 |
+| **BR-04 Quản lý tài xế** | FR-20 → FR-24 | UC12 Quản lý tài xế; UC13 Quản lý phương tiện | AC-10 → AC-11 |
+| **BR-05 Quản lý chuyến đi** | FR-25 → FR-30 | UC09 Nhận/Từ chối chuyến; UC10 Cập nhật trạng thái; UC11 Cập nhật vị trí | AC-12 → AC-13 |
+| **BR-06 Thanh toán** | FR-31 → FR-35 | UC06 Thanh toán | AC-14 → AC-17 |
+| **BR-07 Tính cước** | FR-36 → FR-39 | UC06 Thanh toán | AC-18 → AC-19 |
+| **BR-08 Thông báo** | FR-40 → FR-44 | UC03, UC04, UC05, UC06, UC09, UC10 | AC-20 → AC-21 |
+| **BR-09 Quản lý khách hàng** | FR-45 → FR-48 | UC01 Đăng ký; UC02 Đăng nhập | AC-22 → AC-23 |
+| **BR-10 Quản lý vận hành** | FR-49 → FR-52 | UC12 → UC16 | AC-24 → AC-25 |
+| **BR-11 Báo cáo** | FR-53 → FR-57 | UC17 Tra cứu báo cáo | AC-26 → AC-27 |
+| **BR-12 Đánh giá tài xế** | FR-58 → FR-60 | UC07 Đánh giá tài xế | AC-28 → AC-29 |
+| **BR-13 Phân quyền** | FR-61 → FR-63 | UC02 Đăng nhập; UC18 Quản lý tài khoản và phân quyền | AC-30 → AC-31 |
+| **BR-14 Lịch sử chuyến đi** | FR-64 → FR-67 | UC08 Tra cứu lịch sử chuyến | AC-32 → AC-33 |
+| **BR-15 Mở rộng hệ thống** | FR-68 → FR-70 | Áp dụng ở thiết kế/kiến trúc hệ thống | AC-34 → AC-35 |
 
-**Vấn đề nghiệp vụ → Mục tiêu nghiệp vụ → Business Requirement → Functional Requirement → Use Case → Thiết kế → Kiểm thử → Acceptance Criteria → Nghiệm thu**
+---
 
-Ví dụ:
+## 4. Chuỗi truy xuất yêu cầu mẫu
+
+Ví dụ đối với nghiệp vụ tìm tài xế:
 
 ```text
-Vấn đề:
+Vấn đề nghiệp vụ
 Phân công tài xế thủ công, mất nhiều thời gian
         ↓
-Mục tiêu:
+Mục tiêu nghiệp vụ
 Giảm thời gian tìm tài xế
         ↓
-BR-02:
-Tìm tài xế
+BR-02: Tìm tài xế
         ↓
-FR-02:
-Tìm tài xế sẵn có
+FR-07 → FR-15
         ↓
-FR-03:
-Lọc theo loại xe
+UC04: Tìm tài xế
         ↓
-FR-04:
-Tính khoảng cách từ tài xế đến điểm đón
+Thiết kế module tìm và phân công tài xế
         ↓
-UC-03:
-Tìm tài xế
+Kiểm thử các trường hợp tìm được / từ chối / không phản hồi / không có tài xế
         ↓
-Thiết kế:
-Module tìm tài xế
+AC-04 → AC-06
         ↓
-Kiểm thử:
-Kiểm tra tìm tài xế phù hợp
-        ↓
-AC-04, AC-05, AC-06
-        ↓
-Nghiệm thu:
-Chức năng tìm tài xế đáp ứng yêu cầu
+Nghiệm thu BR-02
+```
+
+## 5. Nguyên tắc kiểm soát truy xuất
+
+- Mỗi BR trong phạm vi phải có ít nhất một FR tương ứng.
+- Mỗi FR quan trọng phải được thể hiện trong ít nhất một Use Case hoặc được ghi rõ là xử lý nội bộ của hệ thống.
+- Mỗi BR phải có Acceptance Criteria để kiểm thử/nghiệm thu.
+- Khi thay đổi BR, phải kiểm tra lại FR, UC và AC liên quan.
+- Không dùng FR nội bộ của hệ thống để tạo Use Case độc lập nếu không có actor trực tiếp khởi tạo hành động đó.
