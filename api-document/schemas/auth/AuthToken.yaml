@@ -1,0 +1,23 @@
+type: object
+required:
+  - accessToken
+  - refreshToken
+  - tokenType
+  - expiresIn
+properties:
+  accessToken:
+    type: string
+    description: JWT access token dùng cho xác thực API.
+    example: eyJhbGciOiJIUzI1NiJ9...
+  refreshToken:
+    type: string
+    description: Refresh token dùng để cấp lại access token.
+    example: eyJhbGciOiJIUzI1NiJ9...
+  tokenType:
+    type: string
+    enum: [Bearer]
+    example: Bearer
+  expiresIn:
+    type: integer
+    description: Thời gian hiệu lực của access token tính theo giây.
+    example: 3600

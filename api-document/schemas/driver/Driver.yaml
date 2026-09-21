@@ -1,0 +1,29 @@
+type: object
+required:
+  - id
+  - fullName
+  - driverLicense
+  - phone
+  - availability
+properties:
+  id:
+    type: string
+    format: uuid
+    example: "323e4567-e89b-12d3-a456-426614174002"
+  fullName:
+    type: string
+    example: "Trần Văn B"
+  driverLicense:
+    type: string
+    example: "B2-123456"
+  phone:
+    type: string
+    example: "0912345678"
+  availability:
+    type: string
+    enum: [AVAILABLE, BUSY, OFFLINE]
+    example: AVAILABLE
+  vehicle:
+    $ref: './Vehicle.yaml'
+  lastLocation:
+    $ref: './Location.yaml'

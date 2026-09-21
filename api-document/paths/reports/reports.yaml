@@ -1,0 +1,23 @@
+paths:
+  /reports/summary:
+    get:
+      operationId: getReportSummary
+      tags: [Reports]
+      summary: Lấy báo cáo tổng hợp
+      description: Cung cấp báo cáo về số lượng chuyến, doanh thu, tỷ lệ hoàn thành, tỷ lệ hủy và hiệu quả tài xế.
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '../../parameters/common.yaml#/components/parameters/Page'
+        - $ref: '../../parameters/common.yaml#/components/parameters/Limit'
+      responses:
+        '200':
+          description: Tổng hợp báo cáo thành công.
+          content:
+            application/json:
+              schema:
+                $ref: '../../schemas/report/ReportSummary.yaml'
+        '401':
+          $ref: '../../responses/common.yaml#/components/responses/Unauthorized'
+        '403':
+          $ref: '../../responses/common.yaml#/components/responses/Forbidden'

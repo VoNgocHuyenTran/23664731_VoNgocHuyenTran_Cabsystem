@@ -1,0 +1,21 @@
+type: object
+required:
+  - driverId
+  - fullName
+  - completedTrips
+  - rating
+properties:
+  driverId:
+    type: string
+    format: uuid
+    example: "323e4567-e89b-12d3-a456-426614174002"
+  fullName:
+    type: string
+    example: "Trần Văn B"
+  completedTrips:
+    type: integer
+    example: 110
+  rating:
+    type: number
+    format: double
+    example: 4.8

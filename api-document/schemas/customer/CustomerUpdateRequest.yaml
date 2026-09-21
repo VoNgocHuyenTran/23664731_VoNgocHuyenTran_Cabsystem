@@ -1,0 +1,12 @@
+type: object
+properties:
+  fullName:
+    type: string
+    example: "Nguyễn Văn A"
+  phone:
+    type: string
+    example: "0909123456"
+  email:
+    type: string
+    format: email
+    example: "customer@example.com"

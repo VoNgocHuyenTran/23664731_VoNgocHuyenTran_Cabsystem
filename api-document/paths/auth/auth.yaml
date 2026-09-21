@@ -1,0 +1,53 @@
+paths:
+  /auth/register:
+    post:
+      operationId: registerCustomer
+      tags: [Authentication]
+      summary: Đăng ký tài khoản
+      description: Cho phép khách hàng tạo tài khoản mới trong CAB System.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../../schemas/auth/RegisterRequest.yaml'
+      responses:
+        '201':
+          description: Đăng ký thành công.
+          content:
+            application/json:
+              schema:
+                $ref: '../../schemas/auth/AuthToken.yaml'
+        '400':
+          $ref: '../../responses/common.yaml#/components/responses/BadRequest'
+        '409':
+          $ref: '../../responses/common.yaml#/components/responses/Conflict'
+        '500':
+          $ref: '../../responses/common.yaml#/components/responses/InternalServerError'
+  /auth/login:
+    post:
+      operationId: loginCustomer
+      tags: [Authentication]
+      summary: Đăng nhập
+      description: Xác thực người dùng và trả về JWT token.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../../schemas/auth/LoginRequest.yaml'
+      responses:
+        '200':
+          description: Đăng nhập thành công.
+          content:
+            application/json:
+              schema:
+                $ref: '../../schemas/auth/AuthToken.yaml'
+        '400':
+          $ref: '../../responses/common.yaml#/components/responses/BadRequest'
+        '401':
+          $ref: '../../responses/common.yaml#/components/responses/Unauthorized'
+        '500':
+          $ref: '../../responses/common.yaml#/components/responses/InternalServerError'

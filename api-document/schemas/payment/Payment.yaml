@@ -1,0 +1,37 @@
+type: object
+required:
+  - id
+  - tripId
+  - paymentMethod
+  - amount
+  - status
+properties:
+  id:
+    type: string
+    format: uuid
+    example: "423e4567-e89b-12d3-a456-426614174003"
+  tripId:
+    type: string
+    format: uuid
+    example: "223e4567-e89b-12d3-a456-426614174001"
+  paymentMethod:
+    type: string
+    enum: [CASH, ELECTRONIC]
+    example: ELECTRONIC
+  amount:
+    type: number
+    format: double
+    example: 175000
+  status:
+    type: string
+    enum: [PENDING, PROCESSING, PAID, FAILED]
+    example: PENDING
+  transactionCode:
+    type: string
+    nullable: true
+    example: "TXN-20260916-001"
+  paidAt:
+    type: string
+    format: date-time
+    nullable: true
+    example: "2026-09-16T09:00:00Z"

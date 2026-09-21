@@ -1,0 +1,49 @@
+type: object
+required:
+  - id
+  - customerId
+  - driverId
+  - pickupLocation
+  - dropoffLocation
+  - tripStatus
+properties:
+  id:
+    type: string
+    format: uuid
+    example: "223e4567-e89b-12d3-a456-426614174001"
+  customerId:
+    type: string
+    format: uuid
+    example: "123e4567-e89b-12d3-a456-426614174000"
+  driverId:
+    type: string
+    format: uuid
+    nullable: true
+    example: "323e4567-e89b-12d3-a456-426614174002"
+  pickupLocation:
+    type: string
+    example: "123 Lê Lợi, Q1, TP.HCM"
+  dropoffLocation:
+    type: string
+    example: "456 Võ Văn Tần, Q3, TP.HCM"
+  tripStatus:
+    type: string
+    enum: [REQUESTED, DRIVER_ACCEPTED, PICKUP, IN_PROGRESS, COMPLETED, CANCELLED]
+    example: REQUESTED
+  estimatedFare:
+    type: number
+    format: double
+    example: 180000
+  finalFare:
+    type: number
+    format: double
+    nullable: true
+    example: 175000
+  createdAt:
+    type: string
+    format: date-time
+    example: "2026-09-16T08:30:00Z"
+  updatedAt:
+    type: string
+    format: date-time
+    example: "2026-09-16T08:40:00Z"

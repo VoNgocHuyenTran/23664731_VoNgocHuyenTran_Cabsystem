@@ -1,0 +1,28 @@
+type: object
+required:
+  - id
+  - tripId
+  - driverId
+  - rating
+properties:
+  id:
+    type: string
+    format: uuid
+    example: "523e4567-e89b-12d3-a456-426614174004"
+  tripId:
+    type: string
+    format: uuid
+    example: "223e4567-e89b-12d3-a456-426614174001"
+  driverId:
+    type: string
+    format: uuid
+    example: "323e4567-e89b-12d3-a456-426614174002"
+  rating:
+    type: integer
+    minimum: 1
+    maximum: 5
+    example: 5
+  comment:
+    type: string
+    nullable: true
+    example: "Tài xế thân thiện và đúng giờ."

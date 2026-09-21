@@ -1,0 +1,12 @@
+type: object
+properties:
+  fullName:
+    type: string
+    example: "Trần Văn B"
+  phone:
+    type: string
+    example: "0912345678"
+  availability:
+    type: string
+    enum: [AVAILABLE, BUSY, OFFLINE]
+    example: AVAILABLE

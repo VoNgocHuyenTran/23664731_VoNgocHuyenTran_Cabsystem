@@ -1,0 +1,8 @@
+type: object
+required:
+  - availability
+properties:
+  availability:
+    type: string
+    enum: [AVAILABLE, BUSY, OFFLINE]
+    example: AVAILABLE

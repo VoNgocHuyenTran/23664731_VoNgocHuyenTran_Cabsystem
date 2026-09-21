@@ -1,0 +1,29 @@
+type: object
+required:
+  - id
+  - fullName
+  - phone
+  - email
+properties:
+  id:
+    type: string
+    format: uuid
+    example: "123e4567-e89b-12d3-a456-426614174000"
+  fullName:
+    type: string
+    example: "Nguyễn Văn A"
+  phone:
+    type: string
+    example: "0909123456"
+  email:
+    type: string
+    format: email
+    example: "customer@example.com"
+  status:
+    type: string
+    enum: [ACTIVE, INACTIVE]
+    example: ACTIVE
+  createdAt:
+    type: string
+    format: date-time
+    example: "2026-09-16T08:00:00Z"

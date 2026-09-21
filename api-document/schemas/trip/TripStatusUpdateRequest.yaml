@@ -1,0 +1,8 @@
+type: object
+required:
+  - status
+properties:
+  status:
+    type: string
+    enum: [REQUESTED, DRIVER_ACCEPTED, PICKUP, IN_PROGRESS, COMPLETED, CANCELLED]
+    example: PICKUP

@@ -1,0 +1,187 @@
+paths:
+  /trips:
+    post:
+      operationId: createTrip
+      tags: [Trip Management]
+      summary: Tạo yêu cầu đặt chuyến
+      description: Khách hàng gửi yêu cầu đặt xe với thông tin điểm đón, điểm đến và loại xe.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../../schemas/trip/TripCreateRequest.yaml'
+      responses:
+        '201':
+          description: Yêu cầu đặt chuyến được tạo thành công.
+          content:
+            application/json:
+              schema:
+                $ref: '../../schemas/trip/Trip.yaml'
+        '400':
+          $ref: '../../responses/common.yaml#/components/responses/BadRequest'
+        '401':
+          $ref: '../../responses/common.yaml#/components/responses/Unauthorized'
+  /trips/{tripId}:
+    get:
+      operationId: getTripById
+      tags: [Trip Management]
+      summary: Lấy thông tin chuyến đi
+      description: Trả về thông tin chi tiết của chuyến đi theo mã chuyến.
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '../../parameters/common.yaml#/components/parameters/TripId'
+      responses:
+        '200':
+          description: Thông tin chuyến đi
+          content:
+            application/json:
+              schema:
+                $ref: '../../schemas/trip/Trip.yaml'
+        '401':
+          $ref: '../../responses/common.yaml#/components/responses/Unauthorized'
+        '404':
+          $ref: '../../responses/common.yaml#/components/responses/NotFound'
+  /trips/{tripId}/accept:
+    post:
+      operationId: acceptTrip
+      tags: [Trip Management]
+      summary: Tài xế nhận chuyến
+      description: Tài xế xác nhận nhận chuyến từ hệ thống.
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '../../parameters/common.yaml#/components/parameters/TripId'
+      responses:
+        '200':
+          description: Nhận chuyến thành công.
+          content:
+            application/json:
+              schema:
+                $ref: '../../schemas/trip/Trip.yaml'
+        '401':
+          $ref: '../../responses/common.yaml#/components/responses/Unauthorized'
+        '409':
+          $ref: '../../responses/common.yaml#/components/responses/Conflict'
+  /trips/{tripId}/reject:
+    post:
+      operationId: rejectTrip
+      tags: [Trip Management]
+      summary: Tài xế từ chối chuyến
+      description: Tài xế từ chối chuyến, hệ thống tiếp tục tìm tài xế khác.
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '../../parameters/common.yaml#/components/parameters/TripId'
+      responses:
+        '200':
+          description: Từ chối chuyến thành công.
+          content:
+            application/json:
+              schema:
+                $ref: '../../schemas/trip/Trip.yaml'
+        '401':
+          $ref: '../../responses/common.yaml#/components/responses/Unauthorized'
+  /trips/{tripId}/status:
+    patch:
+      operationId: updateTripStatus
+      tags: [Trip Management]
+      summary: Cập nhật trạng thái chuyến
+      description: Tài xế cập nhật trạng thái chuyến từ điểm đón đến khi hoàn thành.
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '../../parameters/common.yaml#/components/parameters/TripId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../../schemas/trip/TripStatusUpdateRequest.yaml'
+      responses:
+        '200':
+          description: Trạng thái chuyến được cập nhật.
+          content:
+            application/json:
+              schema:
+                $ref: '../../schemas/trip/Trip.yaml'
+        '400':
+          $ref: '../../responses/common.yaml#/components/responses/BadRequest'
+        '401':
+          $ref: '../../responses/common.yaml#/components/responses/Unauthorized'
+  /trips/{tripId}/tracking:
+    get:
+      operationId: getTripTracking
+      tags: [Trip Management]
+      summary: Theo dõi chuyến đi
+      description: Lấy vị trí tài xế, trạng thái chuyến và thời gian dự kiến.
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '../../parameters/common.yaml#/components/parameters/TripId'
+      responses:
+        '200':
+          description: Thông tin theo dõi.
+          content:
+            application/json:
+              schema:
+                $ref: '../../schemas/trip/TrackingResponse.yaml'
+        '401':
+          $ref: '../../responses/common.yaml#/components/responses/Unauthorized'
+  /trips/{tripId}/payments:
+    post:
+      operationId: createTripPayment
+      tags: [Trip Management]
+      summary: Tạo giao dịch thanh toán
+      description: Khách hàng chọn phương thức thanh toán và hệ thống ghi nhận giao dịch.
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '../../parameters/common.yaml#/components/parameters/TripId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../../schemas/payment/PaymentRequest.yaml'
+      responses:
+        '201':
+          description: Giao dịch thanh toán được tạo.
+          content:
+            application/json:
+              schema:
+                $ref: '../../schemas/payment/Payment.yaml'
+        '400':
+          $ref: '../../responses/common.yaml#/components/responses/BadRequest'
+        '401':
+          $ref: '../../responses/common.yaml#/components/responses/Unauthorized'
+  /trips/{tripId}/ratings:
+    post:
+      operationId: createTripRating
+      tags: [Trip Management]
+      summary: Đánh giá tài xế
+      description: Khách hàng đánh giá tài xế sau khi chuyến đi hoàn thành.
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '../../parameters/common.yaml#/components/parameters/TripId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '../../schemas/trip/RatingRequest.yaml'
+      responses:
+        '201':
+          description: Đánh giá đã được lưu.
+          content:
+            application/json:
+              schema:
+                $ref: '../../schemas/trip/Rating.yaml'
+        '400':
+          $ref: '../../responses/common.yaml#/components/responses/BadRequest'
+        '401':
+          $ref: '../../responses/common.yaml#/components/responses/Unauthorized'

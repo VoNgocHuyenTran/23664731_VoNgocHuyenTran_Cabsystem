@@ -1,0 +1,26 @@
+type: object
+required:
+  - totalTrips
+  - totalRevenue
+  - completionRate
+  - cancellationRate
+properties:
+  totalTrips:
+    type: integer
+    example: 1250
+  totalRevenue:
+    type: number
+    format: double
+    example: 485000000
+  completionRate:
+    type: number
+    format: double
+    example: 92.5
+  cancellationRate:
+    type: number
+    format: double
+    example: 4.8
+  driverEfficiency:
+    type: array
+    items:
+      $ref: './DriverEfficiency.yaml'

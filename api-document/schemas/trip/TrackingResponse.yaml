@@ -1,0 +1,20 @@
+type: object
+required:
+  - tripId
+  - status
+  - estimatedArrival
+properties:
+  tripId:
+    type: string
+    format: uuid
+    example: "223e4567-e89b-12d3-a456-426614174001"
+  status:
+    type: string
+    enum: [REQUESTED, DRIVER_ACCEPTED, PICKUP, IN_PROGRESS, COMPLETED, CANCELLED]
+    example: DRIVER_ACCEPTED
+  driver:
+    $ref: './DriverTracking.yaml'
+  estimatedArrival:
+    type: string
+    format: date-time
+    example: "2026-09-16T08:55:00Z"

@@ -1,0 +1,17 @@
+type: object
+required:
+  - paymentMethod
+  - amount
+properties:
+  paymentMethod:
+    type: string
+    enum: [CASH, ELECTRONIC]
+    example: ELECTRONIC
+  amount:
+    type: number
+    format: double
+    example: 175000
+  notes:
+    type: string
+    nullable: true
+    example: "Thanh toán cho chuyến đi hoàn thành"

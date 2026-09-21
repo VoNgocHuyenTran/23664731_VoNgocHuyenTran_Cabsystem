@@ -1,0 +1,23 @@
+type: object
+required:
+  - fullName
+  - phone
+  - email
+  - password
+properties:
+  fullName:
+    type: string
+    minLength: 2
+    example: "Nguyễn Văn A"
+  phone:
+    type: string
+    pattern: '^[0-9]{10,11}$'
+    example: "0909123456"
+  email:
+    type: string
+    format: email
+    example: "customer@example.com"
+  password:
+    type: string
+    minLength: 8
+    example: "P@ssword123"

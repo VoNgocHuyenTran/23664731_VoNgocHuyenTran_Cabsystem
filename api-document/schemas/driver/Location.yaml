@@ -1,0 +1,17 @@
+type: object
+required:
+  - latitude
+  - longitude
+properties:
+  latitude:
+    type: number
+    format: double
+    example: 10.7801
+  longitude:
+    type: number
+    format: double
+    example: 106.7009
+  updatedAt:
+    type: string
+    format: date-time
+    example: "2026-09-16T08:45:00Z"

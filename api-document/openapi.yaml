@@ -1,0 +1,90 @@
+openapi: 3.0.3
+info:
+  title: CAB System API
+  version: 1.0.0
+  description: >-
+    API document cho hệ thống đặt xe CAB System theo SRS và domain-oriented design.
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+  - url: https://api.cab-system.vn/api/v1
+    description: Production-like API base URL
+security:
+  - bearerAuth: []
+paths:
+  /auth/register:
+    $ref: './paths/auth/auth.yaml#/paths/~1auth~1register'
+  /auth/login:
+    $ref: './paths/auth/auth.yaml#/paths/~1auth~1login'
+  /customers/me:
+    $ref: './paths/customers/customers.yaml#/paths/~1customers~1me'
+  /customers/me/trips:
+    $ref: './paths/customers/customers.yaml#/paths/~1customers~1me~1trips'
+  /drivers/me:
+    $ref: './paths/drivers/drivers.yaml#/paths/~1drivers~1me'
+  /drivers/me/availability:
+    $ref: './paths/drivers/drivers.yaml#/paths/~1drivers~1me~1availability'
+  /drivers/me/location:
+    $ref: './paths/drivers/drivers.yaml#/paths/~1drivers~1me~1location'
+  /trips:
+    $ref: './paths/trips/trips.yaml#/paths/~1trips'
+  /trips/{tripId}:
+    $ref: './paths/trips/trips.yaml#/paths/~1trips~1{tripId}'
+  /trips/{tripId}/accept:
+    $ref: './paths/trips/trips.yaml#/paths/~1trips~1{tripId}~1accept'
+  /trips/{tripId}/reject:
+    $ref: './paths/trips/trips.yaml#/paths/~1trips~1{tripId}~1reject'
+  /trips/{tripId}/status:
+    $ref: './paths/trips/trips.yaml#/paths/~1trips~1{tripId}~1status'
+  /trips/{tripId}/tracking:
+    $ref: './paths/trips/trips.yaml#/paths/~1trips~1{tripId}~1tracking'
+  /trips/{tripId}/payments:
+    $ref: './paths/trips/trips.yaml#/paths/~1trips~1{tripId}~1payments'
+  /trips/{tripId}/ratings:
+    $ref: './paths/trips/trips.yaml#/paths/~1trips~1{tripId}~1ratings'
+  /reports/summary:
+    $ref: './paths/reports/reports.yaml#/paths/~1reports~1summary'
+components:
+  securitySchemes:
+    bearerAuth:
+      $ref: './security/bearerAuth.yaml'
+  schemas:
+    ErrorResponse:
+      $ref: './schemas/common/ErrorResponse.yaml'
+    AuthTokenResponse:
+      $ref: './schemas/auth/AuthToken.yaml'
+    Customer:
+      $ref: './schemas/customer/Customer.yaml'
+    Driver:
+      $ref: './schemas/driver/Driver.yaml'
+    Trip:
+      $ref: './schemas/trip/Trip.yaml'
+    TripCreateRequest:
+      $ref: './schemas/trip/TripCreateRequest.yaml'
+    Payment:
+      $ref: './schemas/payment/Payment.yaml'
+    TrackingResponse:
+      $ref: './schemas/trip/TrackingResponse.yaml'
+    Rating:
+      $ref: './schemas/trip/Rating.yaml'
+  parameters:
+    TripId:
+      $ref: './parameters/common.yaml#/components/parameters/TripId'
+    Page:
+      $ref: './parameters/common.yaml#/components/parameters/Page'
+    Limit:
+      $ref: './parameters/common.yaml#/components/parameters/Limit'
+  responses:
+    BadRequest:
+      $ref: './responses/common.yaml#/components/responses/BadRequest'
+    Unauthorized:
+      $ref: './responses/common.yaml#/components/responses/Unauthorized'
+    Forbidden:
+      $ref: './responses/common.yaml#/components/responses/Forbidden'
+    NotFound:
+      $ref: './responses/common.yaml#/components/responses/NotFound'
+    Conflict:
+      $ref: './responses/common.yaml#/components/responses/Conflict'
+    InternalServerError:
+      $ref: './responses/common.yaml#/components/responses/InternalServerError'

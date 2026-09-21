@@ -1,0 +1,22 @@
+type: object
+required:
+  - id
+  - fullName
+  - latitude
+  - longitude
+properties:
+  id:
+    type: string
+    format: uuid
+    example: "323e4567-e89b-12d3-a456-426614174002"
+  fullName:
+    type: string
+    example: "Trần Văn B"
+  latitude:
+    type: number
+    format: double
+    example: 10.7823
+  longitude:
+    type: number
+    format: double
+    example: 106.6991

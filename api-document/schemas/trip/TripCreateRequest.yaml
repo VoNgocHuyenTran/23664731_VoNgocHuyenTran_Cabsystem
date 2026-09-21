@@ -1,0 +1,20 @@
+type: object
+required:
+  - pickupLocation
+  - dropoffLocation
+  - vehicleType
+properties:
+  pickupLocation:
+    type: string
+    example: "123 Lê Lợi, Q1, TP.HCM"
+  dropoffLocation:
+    type: string
+    example: "456 Võ Văn Tần, Q3, TP.HCM"
+  vehicleType:
+    type: string
+    enum: [ECONOMY, STANDARD, PREMIUM]
+    example: ECONOMY
+  notes:
+    type: string
+    nullable: true
+    example: "Gọi xe cho gia đình"

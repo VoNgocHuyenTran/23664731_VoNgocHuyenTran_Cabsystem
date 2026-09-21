@@ -1,0 +1,20 @@
+type: object
+required:
+  - code
+  - message
+properties:
+  code:
+    type: string
+    example: INVALID_REQUEST
+  message:
+    type: string
+    example: Dữ liệu đầu vào không hợp lệ.
+  details:
+    type: array
+    description: Danh sách chi tiết lỗi nghiệp vụ hoặc validation.
+    items:
+      type: string
+      example: "tripId là bắt buộc."
+  traceId:
+    type: string
+    example: "cab-2026-09-16-0001"
